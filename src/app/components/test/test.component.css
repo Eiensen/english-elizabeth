@@ -1,0 +1,104 @@
+.card{
+    margin-top: 10px;
+    background-color: rgba(252, 252, 252, 0.5);
+    backdrop-filter: blur(2px);
+    border: 1px solid hsla(66, 98%, 50%, 0.5);
+    border-top: 1px solid rgba(255,255,255,0.75);
+    border-left: 1px solid rgba(255,255,255,0.75);
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+.tittle{   
+    color: #1f1e1e;
+    text-align: center;
+    justify-content: center;
+    background-color: hsla(66, 98%, 50%, 0.5);
+    border-radius: inherit;
+    box-shadow: inset 10px 20px 20px rgba(0, 0, 0, 0.05),
+    2px 2px 10px rgba(0, 0, 0, 0.05),
+    2px 5px 15px rgba(0, 0, 0, 0.2),
+    inset -10px -10px 25px rgba(255, 255, 255, 0.05);
+}
+.word-btn{
+    display: flex;
+    text-align: center;    
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    box-shadow: inset 10px 20px 20px rgba(0, 0, 0, 0.05),
+    2px 2px 10px rgba(0, 0, 0, 0.05),
+    2px 5px 15px rgba(0, 0, 0, 0.2),
+    inset -10px -10px 25px rgba(255, 255, 255, 0.05);
+    transition: 0.5s;
+    border-radius: 20%;
+}
+.word-btn:hover{
+    border-radius: 50%;
+}
+
+.word-btn::before, .word-btn-clicked::before{
+    content: "";
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    top: -10px;
+    left: -15px;
+    border-radius: 50%;
+    opacity: 70%;
+}
+.word-btn::after, .word-btn-clicked::after{
+    content: "";
+    position: relative;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    top: -15px;
+    left: -45px;
+    border-radius: 50%;
+    opacity: 70%;
+}
+.tree{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 210px;
+    height: 210px;
+}
+.tree img{
+    width: 20px;
+    height: 20px;
+    
+}
+
+@keyframes grow{
+    0%{
+        width: 20px;
+    height: 20px;
+    }
+    100%{
+        width: 200px;
+    height: 200px;
+    }
+}
+.win{
+    animation: grow 2s ease forwards;
+}
+.incorrect{
+    box-shadow: inset 10px 20px 20px rgba(0, 0, 0, 0.05),
+    2px 2px 10px rgba(0, 0, 0, 0.05),
+    2px 5px 15px rgba(0, 0, 0, 0.2),
+    inset -10px -10px 25px rgba(247, 3, 3, 0.5);
+}
+.correct{
+    box-shadow: inset 10px 20px 20px rgba(0, 0, 0, 0.05),
+    2px 2px 10px rgba(0, 0, 0, 0.05),
+    2px 5px 15px rgba(0, 0, 0, 0.2),
+    inset -10px -10px 25px rgba(3, 247, 64, 0.5);
+}
+:host
+ ::ng-deep .p-radiobutton-box{
+        visibility: hidden;
+    }
+
