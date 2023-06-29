@@ -11,6 +11,6 @@ export class AppComponent {
 
 
   Start(): void{
-    this.isStart = true;
+    this.isStart = !this.isStart;
   }
 }

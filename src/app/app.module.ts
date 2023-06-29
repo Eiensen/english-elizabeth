@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { PlacementTestComponent } from './components/placement-test/placement-test.component';
+import { FromTxtToTestCardsService } from './services/from-txt-to-test-card.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { PlacementTestComponent } from './components/placement-test/placement-te
     HttpClientModule,
     ButtonModule
   ],
-  providers: [],
+  providers: [FromTxtToTestCardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
