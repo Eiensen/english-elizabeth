@@ -1,4 +1,8 @@
-
-<!-- <div >
-    <p *ngFor="let q of qArray">{{q}}</p>
-</div> -->
+<div >
+    <span *ngFor="let card of allCards">
+        <h5>{{card.question}}</h5>
+        <p>{{card.answers[0]}}</p>
+        <p>{{card.answers[1]}}</p>
+        <p>{{card.answers[2]}}</p>
+    </span>
+</div>

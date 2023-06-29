@@ -9,7 +9,7 @@
   </div>
 </header>
 <div class="main row">
-  <div class="card flex flex-wrap justify-content-center"> 
+  <div *ngIf="!isStart" class="card flex flex-wrap justify-content-center"> 
     <p>Как проходить тест</p>
     <br/>
     <p>1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
@@ -21,8 +21,8 @@
     <p>5. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
 
   </div>
- 
-  <app-placement-test></app-placement-test>
+  
+  <app-placement-test *ngIf="isStart"></app-placement-test>
 </div>
 <footer class="flex flex-wrap align-items-center justify-content-center w-full">
   <div class="flex align-items-center" style="height: 100px;">

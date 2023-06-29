@@ -1,9 +1,9 @@
 export class TestCard{
     question: string;
-    answers: string[];   
+    answers: Array<string>;   
     rightAnswer: number;
 
-    constructor(question: string, answers: string[], rightAnswer: number){
+    constructor(question: string, answers: Array<string>, rightAnswer: number){
         this.question = question;
         this.answers = answers;
         this.rightAnswer = rightAnswer;
