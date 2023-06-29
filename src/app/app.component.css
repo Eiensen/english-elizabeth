@@ -50,8 +50,8 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	height: 150px;
-    box-shadow: 0px 0px 20px rgb(177, 177, 177);
+	height: 120px;
+  box-shadow: 0px 0px 20px rgb(177, 177, 177);
 }
 footer .startBtn{
     font-weight: 600;
@@ -86,5 +86,8 @@ footer .startBtn{
         top: 75px;
         left: 120px;
         color: rgb(252, 230, 31);
+    }
+    footer{
+        height: 100px;
     }
  }
