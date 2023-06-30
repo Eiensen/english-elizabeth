@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NavigationActions } from 'src/app/enums/navigationActions';
-import { Navigations } from 'src/app/models/navigations';
 import { TestCard } from 'src/app/models/testCard';
 
 @Component({
@@ -9,7 +8,6 @@ import { TestCard } from 'src/app/models/testCard';
   styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent {
-  private nav: Navigations = new Navigations()
 
   @Input() cards!: TestCard[];
   public currentCard!: TestCard;
