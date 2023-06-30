@@ -2,9 +2,7 @@ h1, h5{
     margin: 0;    
 }
 
-.main { 
-    background-color: rgb(226, 186, 6); 
-    opacity: 0.5;
+.main {     
     min-height: calc(100vh - 240px);
     padding-bottom: 50px;
     display: flex;
@@ -68,13 +66,18 @@ footer .startBtn{
     background-color: rgb(6, 41, 73);
     box-shadow: 0px 4px 10px 5px rgb(177, 177, 177);
 }
-.intro{
-    margin-top: 20px;
+.intro{    
+    margin-top: 20px;    
+    width: 55%;
+    min-height: 50%;   
+    box-shadow: 0px 0px 20px rgb(155, 155, 155);
+}
+.intro-text{
     padding: 30px;
-    width: 70%;
-    min-height: 50%;
     background-color: rgb(245, 221, 189);
-    
+}
+.main app-wizard{
+    width: 100%;    
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -96,5 +99,13 @@ footer .startBtn{
     }
     .main{
         min-height: calc(100vh - 220px);
+    }
+    .intro{
+        width: 85%;
+    }
+ }
+ @media only screen and (max-device-width: 980px){
+    .intro{
+        width: 75%;
     }
  }

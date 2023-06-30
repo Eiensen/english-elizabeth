@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { PlacementTestComponent } from './components/placement-test/placement-test.component';
 import { FromTxtToTestCardsService } from './services/from-txt-to-test-card.service';
+import { WizardComponent } from './components/wizard/wizard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlacementTestComponent
+    PlacementTestComponent,
+    WizardComponent
   ],
   imports: [
     BrowserModule,

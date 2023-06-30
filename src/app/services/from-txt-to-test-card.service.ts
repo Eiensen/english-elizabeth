@@ -25,10 +25,10 @@ export class FromTxtToTestCardsService {
         if(c.length < 2)
         {   }
         else{
-          var tempArray = c.split(/\|{2}/g);
+          var tempArray = c.split(/\|{2}/g);          
           this.allCards.push(new TestCard(
             tempArray[0],
-            new Array<string>(tempArray[1], tempArray[2], tempArray[3]),
+            new Array<string>(tempArray[1].slice(2), tempArray[2].slice(2), tempArray[3].slice(2)),
             2
           ))
         }        

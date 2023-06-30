@@ -8,8 +8,9 @@
     <h5 class="flex justify-content-end">level test</h5>
   </div>
 </header>
-<div class="main row">
-  <div *ngIf="!isStart" class="intro flex flex-wrap justify-content-center"> 
+<div class="main flex flex-wrap justify-content-center">
+  <div class="intro"> 
+    <div *ngIf="!isStart" class="intro-text">
     <p>Как проходить тест</p>
     <br/>
     <p>1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
@@ -19,10 +20,9 @@
     <p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
     <p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
     <p>5. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
-
   </div>
-  
-  <app-placement-test *ngIf="isStart"></app-placement-test>
+  <app-wizard *ngIf="isStart" [cards]="cards"></app-wizard>
+  </div>
 </div>
 <footer>
   <div class="flex align-items-center" style="height: 100px;">

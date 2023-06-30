@@ -3,8 +3,10 @@
 @import "primeng/resources/primeng.css";
 
 body {  
+  content: '';
   margin: 0 auto;
-  z-index: 0;
- 
+  position: relative;
+  z-index: -1;
+  background-color: rgba(226, 186, 6, 0.5); 
 }
 
