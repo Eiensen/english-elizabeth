@@ -1,3 +1,11 @@
+<div class="flex flex-column">
+<div class="card-wrapper">
+    <app-list-of-cards
+    [cards]="cards"
+    (onCardSelected)="onCardSelected($event)"
+    >
+    </app-list-of-cards>
+</div>
 <div class="card-wrapper">
     <app-placement-test 
     [card]="currentCard"
@@ -5,4 +13,5 @@
     [isCardLast]="isCardLast"
     (onAction)="handleActions($event)"
     ></app-placement-test>
+</div>
 </div>

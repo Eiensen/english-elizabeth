@@ -7,9 +7,10 @@ h1, h5{
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     overflow: auto;
+    margin-top: 30px;
 }
 header{
     position: sticky;
@@ -77,7 +78,10 @@ footer .startBtn{
     background-color: rgb(245, 221, 189);
 }
 .main app-wizard{
-    width: 100%;    
+    width: 100%;  
+    display: inline-flex;  
+    justify-content: center;
+
 }
 
 @media only screen and (max-device-width: 480px) {

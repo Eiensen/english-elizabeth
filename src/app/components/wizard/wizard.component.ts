@@ -20,13 +20,17 @@ export class WizardComponent {
   ngOnInit(): void {
     // this.pdfReader.readPdf('../../assets/Outcomes_Placement_Test.pdf')
     //   .then(text => this.pdfParsedText = text, reason => console.error(reason));
-    this.currentCard = this.cards[15];
+    this.currentCard = this.cards[0];
     this.checkActiveBtns();
   }
 
   handleActions(e: NavigationActions) {    
     this.handleNavigation(this.currentCard, e);
     this.checkActiveBtns();
+  }
+
+  onCardSelected(e: number){
+    this.currentCard = this.cards[e];
   }
 
   private handleNavigation(card: TestCard, nav: NavigationActions) {

@@ -9,12 +9,14 @@ import { ButtonModule } from 'primeng/button';
 import { PlacementTestComponent } from './components/placement-test/placement-test.component';
 import { FromTxtToTestCardsService } from './services/from-txt-to-test-card.service';
 import { WizardComponent } from './components/wizard/wizard.component';
+import { ListOfCardsComponent } from './components/list-of-cards/list-of-cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlacementTestComponent,
-    WizardComponent
+    WizardComponent,
+    ListOfCardsComponent
   ],
   imports: [
     BrowserModule,
