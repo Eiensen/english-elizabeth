@@ -19,7 +19,11 @@
     <p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
     </div>   
   </div>
-  <app-wizard *ngIf="isStart" [cards]="cards"></app-wizard>
+  <app-wizard 
+  *ngIf="isStart" 
+  [cards]="cards"
+  [answerKeys]="answerKeys"
+  ></app-wizard>
 </div>
 <footer>
   <div class="flex align-items-center" style="height: 100px;">
