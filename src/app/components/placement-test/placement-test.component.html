@@ -4,9 +4,9 @@
       <h5>{{ card.question }}</h5>
     </div>
     <div>
-      <p><span>a</span>{{ card.answers[0] }}</p>
-      <p><span>b</span>{{ card.answers[1] }}</p>
-      <p><span>c</span>{{ card.answers[2] }}</p>
+      <p (click)="answered(0)"><span>a</span>{{ card.answers[0] }}</p>
+      <p (click)="answered(1)"><span>b</span>{{ card.answers[1] }}</p>
+      <p (click)="answered(2)"><span>c</span>{{ card.answers[2] }}</p>
     </div>
   </div>
   <div class="card-footer">

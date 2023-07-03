@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NavigationActions } from 'src/app/enums/navigationActions';
+import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
 
 @Component({
@@ -8,7 +9,7 @@ import { TestCard } from 'src/app/models/testCard';
   styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent {
-
+  @Input() answerKeys!: AnswerKeys;
   @Input() cards!: TestCard[];
   public currentCard!: TestCard;
   public isCardFirst!: boolean;
@@ -31,35 +32,29 @@ export class WizardComponent {
   }
 
   onCardSelected(e: number){
-    this.currentCard.isActive = false;
-    this.currentCard = this.cards[e];
-    this.currentCard.isActive = true;
+    this.setActiveCurrentCard(e);
     this.checkActiveBtns();
+  }
+
+  onAnswered(e: number){
+    if(this.answerKeys.dictionary[this.cards.indexOf(this.currentCard)].key === e){
+      this.currentCard.rightAnswer = true
+    }else{
+      this.currentCard.rightAnswer = false;
+    } 
   }
 
   private handleNavigation(nav: NavigationActions) {
     let index = this.cards?.indexOf(this.currentCard);
     switch (nav) {
       case NavigationActions.backward:
-        if (this.cards && index > 0) {
-          this.currentCard.isActive = false;
-          this.currentCard = this.cards[--index]; 
-          this.currentCard.isActive = true;
-        }       
+        if (this.cards && index > 0) this.setActiveCurrentCard(--index);
         break;
       case NavigationActions.forward:
-        if (this.cards && index >=0 ) {
-          this.currentCard.isActive = false;
-          this.currentCard = this.cards[++index];
-          this.currentCard.isActive = true;
-        }
+        if (this.cards && index >=0 ) this.setActiveCurrentCard(++index);
         break;
       case NavigationActions.done:
-        if (this.cards && index) {
-          this.currentCard.isActive = false;
-          this.currentCard = this.cards[++index];
-          this.currentCard.isActive = true;
-        }
+        if (this.cards && index) this.setActiveCurrentCard(++index);
         break;
 
       default:
@@ -67,6 +62,12 @@ export class WizardComponent {
 
         
     }
+  }
+
+  private setActiveCurrentCard(index:number): void{
+    this.currentCard.isActive = false;
+          this.currentCard = this.cards[index];
+          this.currentCard.isActive = true;
   }
 
   private checkActiveBtns(){

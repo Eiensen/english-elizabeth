@@ -12,6 +12,7 @@ export class PlacementTestComponent{
   @Input() isCardFirst!: boolean;
   @Input() isCardLast!: boolean;
   @Output() onAction = new EventEmitter<NavigationActions>();
+  @Output() onAnswered = new EventEmitter<number>();
 
   onClickNext(){
     this.onAction.emit(NavigationActions.forward);
@@ -19,6 +20,10 @@ export class PlacementTestComponent{
 
   onClickBack(){
     this.onAction.emit(NavigationActions.backward);
+  }
+
+  answered(index: number){
+    this.onAnswered.emit(index);
   }
  
 }

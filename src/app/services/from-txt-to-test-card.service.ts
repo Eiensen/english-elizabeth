@@ -29,7 +29,7 @@ export class FromTxtToTestCardsService {
           this.allCards.push(new TestCard(
             tempArray[0],
             new Array<string>(tempArray[1].slice(2), tempArray[2].slice(2), tempArray[3].slice(2)),
-            2,
+            null,
             false
           ))
         }        
