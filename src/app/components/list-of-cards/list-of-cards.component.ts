@@ -9,6 +9,7 @@ import { TestCard } from 'src/app/models/testCard';
 export class ListOfCardsComponent {
   @Input() cards!: TestCard[];
   @Output() onCardSelected = new EventEmitter<number>();
+  
 
   onCardClicked(indx: number): void{
     this.onCardSelected.emit(indx);

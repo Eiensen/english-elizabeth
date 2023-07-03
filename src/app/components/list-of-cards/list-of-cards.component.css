@@ -16,3 +16,7 @@
     border: 0;
     box-shadow: 0px 0px 3px rgb(155, 155, 155);
 }
+
+.active{    
+    background-color: rgb(192, 190, 190) !important;
+}

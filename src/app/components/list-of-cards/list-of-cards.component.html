@@ -2,6 +2,7 @@
 <div class="list-container">
     <div *ngFor="let card of cards, let i=index" class="inline">
         <button
+        [ngClass]="{'active': card.isActive}"
         (click)="onCardClicked(i)"
         >{{i+1}}</button>
     </div>

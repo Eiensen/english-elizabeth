@@ -21,33 +21,51 @@ export class WizardComponent {
     // this.pdfReader.readPdf('../../assets/Outcomes_Placement_Test.pdf')
     //   .then(text => this.pdfParsedText = text, reason => console.error(reason));
     this.currentCard = this.cards[0];
+    this.currentCard.isActive = true;
     this.checkActiveBtns();
   }
 
   handleActions(e: NavigationActions) {    
-    this.handleNavigation(this.currentCard, e);
+    this.handleNavigation(e);
     this.checkActiveBtns();
   }
 
   onCardSelected(e: number){
+    this.currentCard.isActive = false;
     this.currentCard = this.cards[e];
+    this.currentCard.isActive = true;
+    this.checkActiveBtns();
   }
 
-  private handleNavigation(card: TestCard, nav: NavigationActions) {
+  private handleNavigation(nav: NavigationActions) {
     let index = this.cards?.indexOf(this.currentCard);
     switch (nav) {
       case NavigationActions.backward:
-        if (this.cards && index > 0) this.currentCard = this.cards[--index];        
+        if (this.cards && index > 0) {
+          this.currentCard.isActive = false;
+          this.currentCard = this.cards[--index]; 
+          this.currentCard.isActive = true;
+        }       
         break;
       case NavigationActions.forward:
-        if (this.cards && index >=0 ) this.currentCard = this.cards[++index];
+        if (this.cards && index >=0 ) {
+          this.currentCard.isActive = false;
+          this.currentCard = this.cards[++index];
+          this.currentCard.isActive = true;
+        }
         break;
       case NavigationActions.done:
-        if (this.cards && index) this.currentCard = this.cards[++index];
+        if (this.cards && index) {
+          this.currentCard.isActive = false;
+          this.currentCard = this.cards[++index];
+          this.currentCard.isActive = true;
+        }
         break;
 
       default:
         break;
+
+        
     }
   }
 
