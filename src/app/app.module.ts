@@ -10,13 +10,17 @@ import { PlacementTestComponent } from './components/placement-test/placement-te
 import { FromTxtToTestCardsService } from './services/from-txt-to-test-card.service';
 import { WizardComponent } from './components/wizard/wizard.component';
 import { ListOfCardsComponent } from './components/list-of-cards/list-of-cards.component';
+import { ResultComponent } from './components/result/result.component';
+import { LevelToStringPipe } from './pipes/level-to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlacementTestComponent,
     WizardComponent,
-    ListOfCardsComponent
+    ListOfCardsComponent,
+    ResultComponent,
+    LevelToStringPipe
   ],
   imports: [
     BrowserModule,

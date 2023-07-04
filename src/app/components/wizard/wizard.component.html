@@ -2,6 +2,7 @@
 <div class="card-wrapper">
     <app-list-of-cards
     [cards]="cards"
+    [isComplete]="isComplete"
     (onCardSelected)="onCardSelected($event)"
     >
     </app-list-of-cards>
@@ -11,8 +12,14 @@
     [card]="currentCard"
     [isCardFirst]="isCardFirst"
     [isCardLast]="isCardLast"
+    [isComplete]="isComplete"
     (onAction)="handleActions($event)"
     (onAnswered)="onAnswered($event)"
     ></app-placement-test>
+</div>
+<div  class="card-wrapper">
+    <app-result *ngIf="isComplete"
+    [totalPoints]="totalPoints"
+    ></app-result>
 </div>
 </div>

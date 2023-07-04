@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TestCard } from '../models/testCard';
+import { Answer, TestCard } from '../models/testCard';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,9 @@ export class FromTxtToTestCardsService {
           var tempArray = c.split(/\|{2}/g);          
           this.allCards.push(new TestCard(
             tempArray[0],
-            new Array<string>(tempArray[1].slice(2), tempArray[2].slice(2), tempArray[3].slice(2)),
+            [new Answer(tempArray[1].slice(2), false, null),
+            new Answer(tempArray[2].slice(2), false, null),
+            new Answer(tempArray[3].slice(2), false, null)],
             null,
             false
           ))

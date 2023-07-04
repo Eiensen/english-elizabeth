@@ -1,3 +1,8 @@
 .card-wrapper{
     width: 55vw;
 }
+.card-wrapper app-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

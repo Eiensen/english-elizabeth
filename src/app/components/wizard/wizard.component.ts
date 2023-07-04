@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { NavigationActions } from 'src/app/enums/navigationActions';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
@@ -14,6 +15,8 @@ export class WizardComponent {
   public currentCard!: TestCard;
   public isCardFirst!: boolean;
   public isCardLast!: boolean;
+  public isComplete: boolean = false;
+  public totalPoints: number = 0;
 
   constructor(){
   }
@@ -21,6 +24,7 @@ export class WizardComponent {
   ngOnInit(): void {
     // this.pdfReader.readPdf('../../assets/Outcomes_Placement_Test.pdf')
     //   .then(text => this.pdfParsedText = text, reason => console.error(reason));
+    
     this.currentCard = this.cards[0];
     this.currentCard.isActive = true;
     this.checkActiveBtns();
@@ -37,11 +41,20 @@ export class WizardComponent {
   }
 
   onAnswered(e: number){
+    console.log(this.totalPoints);
+    
     if(this.answerKeys.dictionary[this.cards.indexOf(this.currentCard)].key === e){
-      this.currentCard.rightAnswer = true
-    }else{
+      this.currentCard.rightAnswer = true;
+      this.cleanAnswersFlags(this.currentCard);
+      this.currentCard.answers[e].isChecked = true;
+      this.currentCard.answers[e].isRight = true;
+    }
+    else{
       this.currentCard.rightAnswer = false;
-    } 
+      this.cleanAnswersFlags(this.currentCard);
+      this.currentCard.answers[e].isChecked = true;
+      this.currentCard.answers[e].isRight = false;
+    }    
   }
 
   private handleNavigation(nav: NavigationActions) {
@@ -51,10 +64,17 @@ export class WizardComponent {
         if (this.cards && index > 0) this.setActiveCurrentCard(--index);
         break;
       case NavigationActions.forward:
-        if (this.cards && index >=0 ) this.setActiveCurrentCard(++index);
+        if (this.cards && index >=0 ) {
+          this.setActiveCurrentCard(++index);
+        }
         break;
       case NavigationActions.done:
-        if (this.cards && index) this.setActiveCurrentCard(++index);
+        if (this.cards && index) {
+          this.setActiveCurrentCard(index);          
+          this.isComplete = true;
+          this.cleanAllCards();
+          console.log('Your total points: ' + this.totalPoints);
+        }
         break;
 
       default:
@@ -64,13 +84,35 @@ export class WizardComponent {
     }
   }
 
-  private setActiveCurrentCard(index:number): void{
-    this.currentCard.isActive = false;
-          this.currentCard = this.cards[index];
-          this.currentCard.isActive = true;
+  private cleanAnswersFlags(card: TestCard): void{
+    card.answers.forEach(a=>{
+      a.isChecked = false;
+      a.isRight = false;
+    })
   }
 
-  private checkActiveBtns(){
+  private cleanAllCards(){
+    this.cards.forEach(c=>{
+      c.isActive = false;
+      c.rightAnswer = null;
+      this.cleanAnswersFlags(c);
+    })
+  }
+
+  private setActiveCurrentCard(index:number): void{
+    this.currentCard.isActive = false;
+
+    if(this.currentCard.rightAnswer) this.totalPoints++;
+
+    this.currentCard = this.cards[index];
+
+    if(this.isCardLast)
+      return;
+
+    this.currentCard.isActive = true;
+  }
+
+  private checkActiveBtns(): void{
     this.isCardFirst = this.currentCard.question === this.cards[0].question ? true : false;
     this.isCardLast = this.currentCard.question === this.cards[this.cards.length - 1].question ? true : false;
   }

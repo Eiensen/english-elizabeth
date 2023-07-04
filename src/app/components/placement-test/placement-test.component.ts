@@ -11,8 +11,11 @@ export class PlacementTestComponent{
   @Input() card!: TestCard;
   @Input() isCardFirst!: boolean;
   @Input() isCardLast!: boolean;
+  @Input() isComplete!: boolean;
   @Output() onAction = new EventEmitter<NavigationActions>();
   @Output() onAnswered = new EventEmitter<number>();
+
+  public isAnswered: boolean = false;
 
   onClickNext(){
     this.onAction.emit(NavigationActions.forward);
@@ -20,6 +23,10 @@ export class PlacementTestComponent{
 
   onClickBack(){
     this.onAction.emit(NavigationActions.backward);
+  }
+
+  onClickDone(){
+    this.onAction.emit(NavigationActions.done);
   }
 
   answered(index: number){

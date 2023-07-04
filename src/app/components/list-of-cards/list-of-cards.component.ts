@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TestCard } from 'src/app/models/testCard';
 
 @Component({
@@ -8,6 +9,7 @@ import { TestCard } from 'src/app/models/testCard';
 })
 export class ListOfCardsComponent {
   @Input() cards!: TestCard[];
+  @Input() isComplete!: boolean;
   @Output() onCardSelected = new EventEmitter<number>();
   
 

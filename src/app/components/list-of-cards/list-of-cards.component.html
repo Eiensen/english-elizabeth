@@ -1,8 +1,8 @@
 
-<div class="list-container">
+<div *ngIf="!isComplete" class="list-container">
     <div *ngFor="let card of cards, let i=index" class="inline">
         <button
-        [ngClass]="{'active': card.isActive}"
+        [ngClass]="{'active': card.isActive, 'checked': card.rightAnswer !== null}"
         (click)="onCardClicked(i)"
         >{{i+1}}</button>
     </div>
