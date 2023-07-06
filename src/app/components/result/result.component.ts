@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LevelDescription } from 'src/app/enums/levelDescription';
 
 @Component({
@@ -8,12 +8,12 @@ import { LevelDescription } from 'src/app/enums/levelDescription';
 })
 export class ResultComponent implements OnInit {
   @Input() totalPoints!: number;
+  @Output() onEndTesting = new EventEmitter<boolean>();
 
   public levelDescription!: LevelDescription;
+  public studentName!: string;
 
   ngOnInit(): void {
-    console.log(this.totalPoints);
-    
     if(this.totalPoints >= 0 && this.totalPoints <=18) this.levelDescription = LevelDescription.elementary;
     if(this.totalPoints >= 19 && this.totalPoints <=25) this.levelDescription = LevelDescription.preIntermediate;
     if(this.totalPoints >= 26 && this.totalPoints <=32) this.levelDescription = LevelDescription.intermediate;
@@ -23,6 +23,6 @@ export class ResultComponent implements OnInit {
   }
 
   onClickSendResult(){
-
+    this.onEndTesting.emit(true);
   }
 }

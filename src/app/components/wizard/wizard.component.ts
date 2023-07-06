@@ -17,6 +17,7 @@ export class WizardComponent {
   public isCardLast!: boolean;
   public isComplete: boolean = false;
   public totalPoints: number = 0;
+  public isEndTesting: boolean = false;
 
   constructor(){
   }
@@ -38,6 +39,10 @@ export class WizardComponent {
   onCardSelected(e: number){
     this.setActiveCurrentCard(e);
     this.checkActiveBtns();
+  }
+
+  onEndTesting(e: boolean){
+    this.isEndTesting = e;
   }
 
   onAnswered(e: number){

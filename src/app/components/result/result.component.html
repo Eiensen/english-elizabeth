@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
       <div>
-        <h3>Thank you!</h3>
+        <h2>Thank you!</h2>
       </div>
       <div>
         <p>Your Level is:</p>
@@ -9,6 +9,10 @@
       </div>
     </div>
     <div class="card-footer">
+      <input type="text"
+      [(ngModel)]="studentName"
+      placeholder="Enter Your Name and Lastname"
+      />
       <button
         class="card-footer-btn"
         (click)="onClickSendResult()"

@@ -18,9 +18,8 @@ export class AppComponent {
     this.testCardService.Init()
     this.cards = this.testCardService.AllCards;
     this.answerKeys = new AnswerKeys();
-  }
-
-  Start(): void{
-    this.isStart = !this.isStart;
+  }  
+  onTestStart(e:boolean){
+    this.isStart = e;
   }
 }

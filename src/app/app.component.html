@@ -9,7 +9,7 @@
   </div>
 </header>
 <div class="main flex flex-wrap justify-content-center">
-  <div  *ngIf="!isStart"  class="intro"> 
+  <div *ngIf="!isStart"  class="intro"> 
     <div class="intro-text">
     <p>Как проходить тест</p>
     <br/>
@@ -17,19 +17,13 @@
     <p>2. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
     <p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
     <p>3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas provident cumque quibusdam accusantium tenetur tempore quo minus, placeat perferendis illum inventore aliquam et repellat maiores qui alias commodi cum sint ratione repellendus quae. Optio esse sapiente quibusdam blanditiis dolores laboriosam?</p>
-    </div>   
+    </div> 
+    <app-footer (onStartClick)="onTestStart($event)"></app-footer>  
   </div>
   <app-wizard 
   *ngIf="isStart" 
   [cards]="cards"
   [answerKeys]="answerKeys"
   ></app-wizard>
-</div>
-<footer>
-  <div class="flex align-items-center" style="height: 100px;">
-    <button class="startBtn"  
-    (click)="Start()"
-    >Start</button>
-  </div>
-</footer>
+</div>  
 </div>

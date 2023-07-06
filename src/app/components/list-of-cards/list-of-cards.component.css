@@ -23,3 +23,12 @@
 .checked{
     background-color: rgb(180, 237, 166) !important;
 }
+
+@media only screen and (max-device-width: 810px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
+    .list-container{
+        height: 150px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+}

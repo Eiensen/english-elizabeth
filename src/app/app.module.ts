@@ -12,6 +12,7 @@ import { WizardComponent } from './components/wizard/wizard.component';
 import { ListOfCardsComponent } from './components/list-of-cards/list-of-cards.component';
 import { ResultComponent } from './components/result/result.component';
 import { LevelToStringPipe } from './pipes/level-to-string.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LevelToStringPipe } from './pipes/level-to-string.pipe';
     WizardComponent,
     ListOfCardsComponent,
     ResultComponent,
-    LevelToStringPipe
+    LevelToStringPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

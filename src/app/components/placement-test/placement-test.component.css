@@ -71,8 +71,9 @@
         font-family: 'Rubik', sans-serif;
     }
     .card-footer-btn{
-        width: 50px;
+        width: 90px;
         height: 25px;
+        margin: 0 5px;
     }
     .card-body{
         padding-bottom: 15px;

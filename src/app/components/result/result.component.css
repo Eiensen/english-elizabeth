@@ -14,6 +14,9 @@
     font-weight: 600;
     font-family: 'Rubik', sans-serif;
 }
+.card h2{
+    font-family: 'Rubik', sans-serif;
+}
 .card p{
     display: flex;
     justify-content: center;
@@ -31,8 +34,19 @@
 .card-footer{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
+}
+.card-footer input{
+    margin: 5px;
+    border-radius: 5px;
+    border-color: rgb(240, 240, 240);
+    border-width: thin;
+    font-weight: 400;
+    font-family: 'Yeseva One', cursive;
+    min-width: 120px;
+    height: 30px;
 }
 .card-footer-btn{
     margin: 0 20px;
@@ -45,15 +59,19 @@
     background-color: rgb(10, 62, 110);
 }
 
-
 @media only screen and (max-device-width: 520px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) */
     .card{
-        min-height: 270px;
+        min-width: 100%;
     }
     .card h4{
-        font-weight: 400;
-        font-size: 14px;
+        font-weight: 600;
+        font-size: 18px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .card h2{
+        font-size: 20px;
+        font-weight: 600;
         font-family: 'Rubik', sans-serif;
     }
     .card p{
@@ -62,7 +80,10 @@
         font-family: 'Rubik', sans-serif;
     }
     .card-footer-btn{
-        width: 50px;
+        width: 80px;
+        height: 25px;
+    }
+    .card-footer input{
         height: 25px;
     }
     .card-body{
@@ -70,3 +91,26 @@
         padding-top: 5px;        
     }
 }
+@media only screen and (max-device-width: 980px){
+    .card{
+        min-width: 100%;
+    }
+    .card h4{
+        font-weight: 600;
+        font-size: 22px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .card p{
+        font-weight: 300;
+        font-size: 12px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .card-footer-btn{
+        width: 120px;
+        height: 25px;
+    }
+    .card-body{
+        padding-bottom: 15px;
+        padding-top: 5px;        
+    }
+ }
