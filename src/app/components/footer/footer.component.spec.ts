@@ -20,4 +20,9 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Start() should be truthy', () =>{
+    component.Start();
+    expect(component.Start).toBeTruthy()  
+  })
 });

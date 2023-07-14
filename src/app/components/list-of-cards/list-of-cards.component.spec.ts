@@ -20,4 +20,9 @@ describe('ListOfCardsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('onCardClicked() should be truthy', () => {
+    component.onCardClicked(1);
+    expect(component.onCardClicked).toBeTruthy();
+  })
 });

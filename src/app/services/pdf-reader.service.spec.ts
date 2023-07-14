@@ -6,7 +6,9 @@ describe('PdfReaderService', () => {
   let service: PdfReaderService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [PdfReaderService]
+    });
     service = TestBed.inject(PdfReaderService);
   });
 

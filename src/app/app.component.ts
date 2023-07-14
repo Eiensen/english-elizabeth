@@ -9,7 +9,7 @@ import { AnswerKeys } from './models/answerKeys';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EngGame';
+  public title = 'EngGame';
   isStart: boolean = false;
   public cards: TestCard[];
   public answerKeys: AnswerKeys;
@@ -19,6 +19,7 @@ export class AppComponent {
     this.cards = this.testCardService.AllCards;
     this.answerKeys = new AnswerKeys();
   }  
+  
   onTestStart(e:boolean){
     this.isStart = e;
   }

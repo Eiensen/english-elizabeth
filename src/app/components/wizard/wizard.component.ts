@@ -46,8 +46,6 @@ export class WizardComponent {
   }
 
   onAnswered(e: number){
-    console.log(this.totalPoints);
-    
     if(this.answerKeys.dictionary[this.cards.indexOf(this.currentCard)].key === e){
       this.currentCard.rightAnswer = true;
       this.cleanAnswersFlags(this.currentCard);
@@ -84,8 +82,6 @@ export class WizardComponent {
 
       default:
         break;
-
-        
     }
   }
 
