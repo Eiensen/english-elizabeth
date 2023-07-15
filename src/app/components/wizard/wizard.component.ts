@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { NavigationActions } from 'src/app/enums/navigationActions';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-wizard',
@@ -18,6 +19,9 @@ export class WizardComponent {
   public isComplete: boolean = false;
   public totalPoints: number = 0;
   public isEndTesting: boolean = false;
+  public completeCards: TestCard[] = [];
+
+  private doc = new jsPDF();
 
   constructor(){
   }
@@ -42,7 +46,23 @@ export class WizardComponent {
   }
 
   onEndTesting(e: boolean){
-    this.isEndTesting = e;
+    this.isEndTesting = e; 
+
+    // var pdf = new jsPDF('p', 'pt', 'letter');
+		// var width = 600;
+		// document.body.style.width = width + "px";
+
+		// pdf.html(document.body, {
+		// 	callback: function (pdf) {
+		// 		var iframe = document.createElement('iframe');
+		// 		iframe.setAttribute('style', 'position:absolute;top:0;right:0;height:100%; width:600px');
+		// 		//document.body.appendChild(iframe);
+		// 		iframe.src = pdf.output('datauristring');
+    //     pdf.save("a4.pdf");
+    //     document.body.style.width = 100 + "%";
+		// 	}
+		// });
+    
   }
 
   onAnswered(e: number){
@@ -73,9 +93,10 @@ export class WizardComponent {
         break;
       case NavigationActions.done:
         if (this.cards && index) {
-          this.setActiveCurrentCard(index);          
+          this.setActiveCurrentCard(index); 
+          this.completeCards = this.cards;
           this.isComplete = true;
-          this.cleanAllCards();
+          
           console.log('Your total points: ' + this.totalPoints);
         }
         break;

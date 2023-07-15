@@ -11,7 +11,6 @@ export class PlacementTestComponent{
   @Input() card!: TestCard;
   @Input() isCardFirst!: boolean;
   @Input() isCardLast!: boolean;
-  @Input() isComplete!: boolean;
   @Output() onAction = new EventEmitter<NavigationActions>();
   @Output() onAnswered = new EventEmitter<number>();
 
