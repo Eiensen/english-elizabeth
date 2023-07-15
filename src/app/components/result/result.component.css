@@ -40,13 +40,16 @@
 }
 .card-footer input{
     margin: 5px;
+    text-align: center;
     border-radius: 5px;
     border-color: rgb(240, 240, 240);
     border-width: thin;
-    font-weight: 400;
     font-family: 'Yeseva One', cursive;
-    min-width: 120px;
-    height: 30px;
+    width: 210px;
+    height: 30px;    
+}
+.card-footer input::placeholder{
+    font-size: 12px;
 }
 .card-footer-btn{
     margin: 0 20px;

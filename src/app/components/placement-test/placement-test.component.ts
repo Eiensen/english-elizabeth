@@ -8,7 +8,7 @@ import { TestCard } from 'src/app/models/testCard';
   styleUrls: ['./placement-test.component.css']
 })
 export class PlacementTestComponent{
-  @Input() card!: TestCard | undefined;
+  @Input() card!: TestCard;
   @Input() isCardFirst!: boolean;
   @Input() isCardLast!: boolean;
   @Input() isComplete!: boolean;

@@ -6,3 +6,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-device-width: 480px){
+    .card-wrapper{
+        width: 80vw;
+    }
+ }

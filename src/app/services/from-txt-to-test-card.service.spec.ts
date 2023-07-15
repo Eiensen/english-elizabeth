@@ -2,19 +2,22 @@ import { TestBed } from '@angular/core/testing';
 
 import { FromTxtToTestCardsService } from './from-txt-to-test-card.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
-describe('FromTxtToTestCardService', () => {
+fdescribe('FromTxtToTestCardService', () => {
   let service: FromTxtToTestCardsService;
   let http: HttpClient;
-
-  const fakeComponentMethods = jasmine.createSpyObj(['get']);
-
+  
+  const fakeHttpClient = {
+    get: function(): Observable<string>{
+      return new Observable<string>
+    }
+  }
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         FromTxtToTestCardsService,
-        HttpClient,
-        HttpHandler 
+        {provide: HttpClient, useValue: fakeHttpClient}
       ]
     });
     service = TestBed.inject(FromTxtToTestCardsService);
@@ -22,11 +25,11 @@ describe('FromTxtToTestCardService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeDefined();
   });
 
-  // it('Init() should call http.get()', () =>{
-  //   service.Init();
-  //   expect(http.get).toBeTruthy();
-  // })
+  it('Init() should call http.get()', () =>{
+    service.Init();
+    expect(service.AllCards[0].question).toContain('1');
+  })
 });
