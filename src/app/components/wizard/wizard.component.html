@@ -1,24 +1,25 @@
 <div class="flex flex-column">
 <div class="card-wrapper">
     <app-list-of-cards
+    *ngIf="!isComplete"
     [cards]="cards"
-    [isComplete]="isComplete"
     (onCardSelected)="onCardSelected($event)"
     >
     </app-list-of-cards>
 </div>
 <div class="card-wrapper">
     <app-placement-test 
+    *ngIf="!isComplete"
     [card]="currentCard"
     [isCardFirst]="isCardFirst"
     [isCardLast]="isCardLast"
-    [isComplete]="isComplete"
     (onAction)="handleActions($event)"
     (onAnswered)="onAnswered($event)"
     ></app-placement-test>
 </div>
 <div  class="card-wrapper">
-    <app-result *ngIf="isComplete"
+    <app-result 
+    *ngIf="isComplete"
     [totalPoints]="totalPoints"
     (onEndTesting)="onEndTesting($event)"
     ></app-result>
