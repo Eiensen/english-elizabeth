@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 .card h5, .card span{
     font-size: 20px;
@@ -26,7 +27,13 @@
     background-color: #f7f7f7;
 }
 .card .checked{
-    background-color: rgb(216, 243, 209);
+    background-color: rgb(233, 233, 233);
+}
+.card .wrong{
+    background-color: rgb(243, 209, 209);
+}
+.card .right{
+    background-color: rgb(209, 243, 209);
 }
 .card span{
     margin-right: 10px;
@@ -42,7 +49,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .card-footer-btn{
     margin: 0 20px;

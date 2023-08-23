@@ -47,7 +47,8 @@ export class WizardComponent {
 
   onEndTesting(e: boolean){
     this.isEndTesting = e; 
-
+    console.log(this.completeCards);
+    
     // var pdf = new jsPDF('p', 'pt', 'letter');
 		// var width = 600;
 		// document.body.style.width = width + "px";

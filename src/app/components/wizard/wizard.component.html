@@ -1,27 +1,39 @@
 <div class="flex flex-column">
-<div class="card-wrapper">
+  <div class="card-wrapper">
     <app-list-of-cards
-    *ngIf="!isComplete"
-    [cards]="cards"
-    (onCardSelected)="onCardSelected($event)"
+      *ngIf="!isComplete"
+      [cards]="cards"
+      (onCardSelected)="onCardSelected($event)"
     >
     </app-list-of-cards>
-</div>
-<div class="card-wrapper">
-    <app-placement-test 
-    *ngIf="!isComplete"
-    [card]="currentCard"
-    [isCardFirst]="isCardFirst"
-    [isCardLast]="isCardLast"
-    (onAction)="handleActions($event)"
-    (onAnswered)="onAnswered($event)"
+  </div>
+  <div class="card-wrapper">
+    <app-placement-test
+      *ngIf="!isComplete"
+      [card]="currentCard"
+      [isCardForTesting]="true"
+      [isCardFirst]="isCardFirst"
+      [isCardLast]="isCardLast"
+      (onAction)="handleActions($event)"
+      (onAnswered)="onAnswered($event)"
     ></app-placement-test>
-</div>
-<div  class="card-wrapper">
-    <app-result 
-    *ngIf="isComplete"
-    [totalPoints]="totalPoints"
-    (onEndTesting)="onEndTesting($event)"
+  </div>
+  <div *ngFor="let card of completeCards" class="card-wrapper">
+    <app-placement-test
+      *ngIf="isComplete && isEndTesting"
+      [card]="card"
+      [isCardForTesting]="false"
+      [isCardFirst]="isCardFirst"
+      [isCardLast]="isCardLast"
+      (onAction)="handleActions($event)"
+      (onAnswered)="onAnswered($event)"
+    ></app-placement-test>
+  </div>
+  <div class="card-wrapper">
+    <app-result
+      *ngIf="isComplete && !isEndTesting"
+      [totalPoints]="totalPoints"
+      (onEndTesting)="onEndTesting($event)"
     ></app-result>
-</div>
+  </div>
 </div>

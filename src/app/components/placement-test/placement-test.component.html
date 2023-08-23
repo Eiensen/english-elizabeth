@@ -4,12 +4,12 @@
       <h5>{{ card.question }}</h5>
     </div>
     <div>
-      <p (click)="answered(0)" [ngClass]="{'checked': card.answers[0].isChecked}"><span>a</span>{{ card.answers[0].answer }}</p>
-      <p (click)="answered(1)" [ngClass]="{'checked': card.answers[1].isChecked}"><span>b</span>{{ card.answers[1].answer }}</p>
-      <p (click)="answered(2)" [ngClass]="{'checked': card.answers[2].isChecked}"><span>c</span>{{ card.answers[2].answer }}</p>
+      <p (click)="answered(0)" [ngClass]="checkedClass(0)"><span>a</span>{{ card.answers[0].answer }}</p>
+      <p (click)="answered(1)" [ngClass]="checkedClass(1)"><span>b</span>{{ card.answers[1].answer }}</p>
+      <p (click)="answered(2)" [ngClass]="checkedClass(2)"><span>c</span>{{ card.answers[2].answer }}</p>
     </div>
   </div>
-  <div class="card-footer">
+  <div *ngIf="isCardForTesting" class="card-footer">
     <button
       *ngIf="!isCardFirst"
       class="card-footer-btn"
