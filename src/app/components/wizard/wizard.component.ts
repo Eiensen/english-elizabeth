@@ -4,6 +4,7 @@ import { NavigationActions } from 'src/app/enums/navigationActions';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
 import { jsPDF } from "jspdf";
+import { getDatabase, ref, set } from 'firebase/database';
 
 @Component({
   selector: 'app-wizard',
@@ -46,24 +47,23 @@ export class WizardComponent {
   }
 
   onEndTesting(e: boolean){
-    this.isEndTesting = e; 
-    console.log(this.completeCards);
-    
-    // var pdf = new jsPDF('p', 'pt', 'letter');
-		// var width = 600;
-		// document.body.style.width = width + "px";
+    this.isEndTesting = e;
 
-		// pdf.html(document.body, {
-		// 	callback: function (pdf) {
-		// 		var iframe = document.createElement('iframe');
-		// 		iframe.setAttribute('style', 'position:absolute;top:0;right:0;height:100%; width:600px');
-		// 		//document.body.appendChild(iframe);
-		// 		iframe.src = pdf.output('datauristring');
-    //     pdf.save("a4.pdf");
-    //     document.body.style.width = 100 + "%";
-		// 	}
-		// });
+  }
+  onStudentName(e: string){
+    console.log(e);
     
+    const db = getDatabase();
+    set(ref(db, 'students/'), {
+      studentname: e,
+      answers: {}
+    })
+    .then(()=>{
+      console.log('save student data successfull');      
+    })
+    .catch((error) =>{
+      console.log(error);      
+    })
   }
 
   onAnswered(e: number){

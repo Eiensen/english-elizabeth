@@ -9,6 +9,7 @@ import { LevelDescription } from 'src/app/enums/levelDescription';
 export class ResultComponent implements OnInit {
   @Input() totalPoints!: number;
   @Output() onEndTesting = new EventEmitter<boolean>();
+  @Output() onStudentName = new EventEmitter<string>();
 
   public levelDescription!: LevelDescription;
   public studentName!: string;
@@ -24,5 +25,6 @@ export class ResultComponent implements OnInit {
 
   onClickSendResult(){
     this.onEndTesting.emit(true);
+    this.onStudentName.emit(this.studentName);
   }
 }

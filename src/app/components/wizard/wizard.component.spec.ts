@@ -4,7 +4,8 @@ import { WizardComponent } from './wizard.component';
 import { ListOfCardsComponent } from '../list-of-cards/list-of-cards.component';
 import { FooterComponent } from '../footer/footer.component';
 import { PlacementTestComponent } from '../placement-test/placement-test.component';
-import { Answer, TestCard } from 'src/app/models/testCard';
+import { TestCard } from 'src/app/models/testCard';
+import { Answer } from "src/app/models/Answer";
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { NavigationActions } from 'src/app/enums/navigationActions';
 

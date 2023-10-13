@@ -1,3 +1,5 @@
+import { Answer } from "./Answer";
+
 export class TestCard{
     question: string;
     answers: Answer[]; 
@@ -9,17 +11,5 @@ export class TestCard{
         this.answers = answers;
         this.isActive = isActive;
         this.rightAnswer = rightAnswer;
-    }
-}
-
-export class Answer{
-    answer: string;
-    isChecked: boolean;
-    isRight: boolean | null;
-
-    constructor(answer: string, isChecked: boolean, isRight: boolean | null){
-        this.answer = answer;
-        this.isChecked = isChecked;
-        this.isRight = isRight;
     }
 }

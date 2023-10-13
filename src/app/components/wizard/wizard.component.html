@@ -34,6 +34,7 @@
       *ngIf="isComplete && !isEndTesting"
       [totalPoints]="totalPoints"
       (onEndTesting)="onEndTesting($event)"
+      (onStudentName)="onStudentName($event)"
     ></app-result>
   </div>
 </div>

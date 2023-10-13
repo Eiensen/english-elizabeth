@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlacementTestComponent } from './placement-test.component';
-import { Answer, TestCard } from 'src/app/models/testCard';
+import { TestCard } from 'src/app/models/testCard';
+import { Answer } from "src/app/models/Answer";
 
 describe('PlacementTestComponent', () => {
   let component: PlacementTestComponent;
