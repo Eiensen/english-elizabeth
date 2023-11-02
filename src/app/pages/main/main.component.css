@@ -70,13 +70,16 @@ header .title h5{
     .card{
         width: 90%;
     }
+    header .title{
+        margin-top: 10px;
+    }
     header .title h1{        
-        font-size: 60px;
+        font-size: 40px;
     }
     header .title h5{
         position: absolute;
-        top: 75px;
-        left: 120px;
+        top: 31px;
+        left: 77px;
         color: rgb(252, 230, 31);
     }
     .main{
