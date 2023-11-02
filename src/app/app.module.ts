@@ -13,6 +13,8 @@ import { ListOfCardsComponent } from './components/list-of-cards/list-of-cards.c
 import { ResultComponent } from './components/result/result.component';
 import { LevelToStringPipe } from './pipes/level-to-string.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { TestingComponent } from './pages/testing/testing.component';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './components/footer/footer.component';
     ListOfCardsComponent,
     ResultComponent,
     LevelToStringPipe,
-    FooterComponent
+    FooterComponent,
+    TestingComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

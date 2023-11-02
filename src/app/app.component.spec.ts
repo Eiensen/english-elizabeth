@@ -28,19 +28,5 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it(`should have as title 'EngGame'`, () => {
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('EngGame');
-  });
-
-  it('should have the service', () =>{
-    expect(service).toBeTruthy();
-  })
-
-  it('After call (onTestStart(true)), (isStart) should be true', ()=>{
-    const app = fixture.componentInstance;
-    app.onTestStart(true);
-    expect(app.isStart).toBe(true);
-  })
+    
 });

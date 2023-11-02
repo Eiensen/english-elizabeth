@@ -1,0 +1,53 @@
+<div class="">
+    <header class="">
+      <div class="logo flex justify-content-start w-full mb-2 mt-2">
+        <img src="../assets/book_logo.png" alt="" width="200" height="100" />
+      </div>
+      <div
+        class="title absolute top-0"
+        style="width: 280px; height: 50px; margin: 0"
+      >
+        <h1>English</h1>
+        <h5 class="flex justify-content-end">level test</h5>
+      </div>
+    </header>
+    <div class="main flex flex-wrap justify-content-center">
+      <div *ngIf="!isStart" class="intro">
+        <div class="intro-text">
+          <p>Как проходить тест</p>
+          <br />
+          <p>
+            1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            provident cumque quibusdam accusantium tenetur tempore quo minus,
+            placeat perferendis illum inventore aliquam et repellat maiores qui
+            alias commodi cum sint ratione repellendus quae. Optio esse sapiente
+            quibusdam blanditiis dolores laboriosam?
+          </p>
+          <p>
+            2. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            provident cumque quibusdam accusantium tenetur tempore quo minus,
+            placeat perferendis illum inventore aliquam et repellat maiores qui
+            alias commodi cum sint ratione repellendus quae. Optio esse sapiente
+            quibusdam blanditiis dolores laboriosam?
+          </p>
+          <p>
+            3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            provident cumque quibusdam accusantium tenetur tempore quo minus,
+            placeat perferendis illum inventore aliquam et repellat maiores qui
+            alias commodi cum sint ratione repellendus quae. Optio esse sapiente
+            quibusdam blanditiis dolores laboriosam?
+          </p>
+          <p>
+            3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            provident cumque quibusdam accusantium tenetur tempore quo minus,
+            placeat perferendis illum inventore aliquam et repellat maiores qui
+            alias commodi cum sint ratione repellendus quae. Optio esse sapiente
+            quibusdam blanditiis dolores laboriosam?
+          </p>
+        </div>
+        <app-footer (onStartClick)="onTestStart($event)"></app-footer>
+      </div>
+      <app-testing [isStartTesting]="isStart"></app-testing>
+    </div>
+  </div>
+  

@@ -1,5 +1,5 @@
 .card{
-    background-color: rgb(253, 253, 253);
+    background-color: rgba(253, 253, 253, 0.7);
     border-radius: 5px;
     padding: 1px 15px 15px 15px;    
     box-shadow: 0px 0px 20px rgb(155, 155, 155);
@@ -22,12 +22,13 @@
     padding-left: 50px;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
+    cursor: pointer;
 }
 .card p:hover{
-    background-color: #f7f7f7;
+    background-color: #e9e9e9;
 }
 .card .checked{
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(202, 201, 201);
 }
 .card .wrong{
     background-color: rgb(243, 209, 209);
