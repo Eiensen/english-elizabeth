@@ -45,6 +45,6 @@ export class PlacementTestComponent {
   }
 
   answered(index: number) {
-    this.onAnswered.emit(index);
+    if (this.isCardForTesting) this.onAnswered.emit(index);
   }
 }

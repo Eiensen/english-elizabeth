@@ -60,7 +60,8 @@
     height: 30px;
     border-radius: 5px;
     color: aliceblue;
-    background-color: rgb(10, 62, 110);
+    border: none;
+    background-color: rgb(80 115 147);
 }
 
 @media only screen and (max-device-width: 520px) {
