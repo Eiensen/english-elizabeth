@@ -8,6 +8,7 @@ import { TestCard } from 'src/app/models/testCard';
 import { Answer } from "src/app/models/Answer";
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { NavigationActions } from 'src/app/enums/navigationActions';
+import { LevelDescription } from 'src/app/enums/levelDescription';
 
 describe('WizardComponent', () => {
   let component: WizardComponent;
@@ -70,4 +71,5 @@ describe('WizardComponent', () => {
     component.ngOnInit();
     expect(fakeComponentMethods.checkActiveBtns).toHaveBeenCalled();
   })
+  
 });

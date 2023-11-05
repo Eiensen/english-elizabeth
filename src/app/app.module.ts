@@ -11,10 +11,16 @@ import { FromTxtToTestCardsService } from './services/from-txt-to-test-card.serv
 import { WizardComponent } from './components/wizard/wizard.component';
 import { ListOfCardsComponent } from './components/list-of-cards/list-of-cards.component';
 import { ResultComponent } from './components/result/result.component';
-import { LevelToStringPipe } from './pipes/level-to-string.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { TestingComponent } from './pages/testing/testing.component';
 import { MainComponent } from './pages/main/main.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,6 @@ import { MainComponent } from './pages/main/main.component';
     WizardComponent,
     ListOfCardsComponent,
     ResultComponent,
-    LevelToStringPipe,
     FooterComponent,
     TestingComponent,
     MainComponent
@@ -33,9 +38,19 @@ import { MainComponent } from './pages/main/main.component';
     FormsModule,
     RadioButtonModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [FromTxtToTestCardsService],
+  providers: [
+    FromTxtToTestCardsService, 
+    ScreenTrackingService,
+    UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

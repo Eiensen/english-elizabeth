@@ -3,13 +3,16 @@ import { Observable, of } from 'rxjs';
 import { NavigationActions } from 'src/app/enums/navigationActions';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
-import { jsPDF } from "jspdf";
-import { getDatabase, ref, set } from 'firebase/database';
+import { jsPDF } from 'jspdf';
+import { getDatabase, ref, set, push } from 'firebase/database';
+import { AngularFireModule } from '@angular/fire/compat';
+import { initializeApp } from '@angular/fire/app';
+import { LevelDescription } from 'src/app/enums/levelDescription';
 
 @Component({
   selector: 'app-wizard',
   templateUrl: './wizard.component.html',
-  styleUrls: ['./wizard.component.css']
+  styleUrls: ['./wizard.component.css'],
 })
 export class WizardComponent {
   @Input() answerKeys!: AnswerKeys;
@@ -24,61 +27,75 @@ export class WizardComponent {
 
   private doc = new jsPDF();
 
-  constructor(){
-  }
+  constructor() {}
 
   ngOnInit(): void {
     // this.pdfReader.readPdf('../../assets/Outcomes_Placement_Test.pdf')
     //   .then(text => this.pdfParsedText = text, reason => console.error(reason));
-    
+
     this.currentCard = this.cards[0];
     this.currentCard.isActive = true;
     this.checkActiveBtns();
   }
 
-  handleActions(e: NavigationActions) {    
+  handleActions(e: NavigationActions) {
     this.handleNavigation(e);
     this.checkActiveBtns();
   }
 
-  onCardSelected(e: number){
+  onCardSelected(e: number) {
     this.setActiveCurrentCard(e);
     this.checkActiveBtns();
   }
 
-  onEndTesting(e: boolean){
+  onEndTesting(e: boolean) {
     this.isEndTesting = e;
-
   }
-  onStudentName(e: string){
-    console.log(e);
-    
+  onStudentName(e: string) {
     const db = getDatabase();
-    set(ref(db, 'students/'), {
-      studentname: e,
-      answers: {}
+    var cardsToDb: {q:string, a:string|undefined, isRight: boolean|null}[] = []
+    this.completeCards.map(c=>{
+      var checked = c.answers.find(a=>a.isChecked);
+      if(checked)
+      cardsToDb.push({
+        q: c.question, 
+        a: checked?.answer,
+        isRight: c.rightAnswer
+      })
     })
-    .then(()=>{
-      console.log('save student data successfull');      
+    push(ref(db, 'students/' + e), {
+      level: this.getLevelDescription().toString(),
+      test: cardsToDb,
+      time: new Date().toString()
     })
-    .catch((error) =>{
-      console.log(error);      
-    })
+      .then(() => {
+        console.log('save student data successfull');
+      })
+      .catch((error) => {
+        console.log(error);
+      });      
   }
 
-  onAnswered(e: number){
-    if(this.answerKeys.dictionary[this.cards.indexOf(this.currentCard)].key === e){
+  onAnswered(e: number) {
+    if (
+      this.answerKeys.dictionary[this.cards.indexOf(this.currentCard)].key === e
+    ) {
       this.currentCard.rightAnswer = true;
       this.cleanAnswersFlags(this.currentCard);
       this.currentCard.answers[e].isChecked = true;
       this.currentCard.answers[e].isRight = true;
-    }
-    else{
+    } else {
       this.currentCard.rightAnswer = false;
       this.cleanAnswersFlags(this.currentCard);
       this.currentCard.answers[e].isChecked = true;
       this.currentCard.answers[e].isRight = false;
-    }    
+    }
+  }
+
+  getLevelDescription(): string {
+    var levelDescription: LevelDescription = new LevelDescription(this.totalPoints);
+   
+    return levelDescription.name;
   }
 
   private handleNavigation(nav: NavigationActions) {
@@ -88,16 +105,16 @@ export class WizardComponent {
         if (this.cards && index > 0) this.setActiveCurrentCard(--index);
         break;
       case NavigationActions.forward:
-        if (this.cards && index >=0 ) {
+        if (this.cards && index >= 0) {
           this.setActiveCurrentCard(++index);
         }
         break;
       case NavigationActions.done:
         if (this.cards && index) {
-          this.setActiveCurrentCard(index); 
+          this.setActiveCurrentCard(index);
           this.completeCards = this.cards;
           this.isComplete = true;
-          
+
           console.log('Your total points: ' + this.totalPoints);
         }
         break;
@@ -107,36 +124,39 @@ export class WizardComponent {
     }
   }
 
-  private cleanAnswersFlags(card: TestCard): void{
-    card.answers.forEach(a=>{
+  private cleanAnswersFlags(card: TestCard): void {
+    card.answers.forEach((a) => {
       a.isChecked = false;
       a.isRight = false;
-    })
+    });
   }
 
-  private cleanAllCards(){
-    this.cards.forEach(c=>{
+  private cleanAllCards() {
+    this.cards.forEach((c) => {
       c.isActive = false;
       c.rightAnswer = null;
       this.cleanAnswersFlags(c);
-    })
+    });
   }
 
-  private setActiveCurrentCard(index:number): void{
+  private setActiveCurrentCard(index: number): void {
     this.currentCard.isActive = false;
 
-    if(this.currentCard.rightAnswer) this.totalPoints++;
+    if (this.currentCard.rightAnswer) this.totalPoints++;
 
     this.currentCard = this.cards[index];
 
-    if(this.isCardLast)
-      return;
+    if (this.isCardLast) return;
 
     this.currentCard.isActive = true;
   }
 
-  private checkActiveBtns(): void{
-    this.isCardFirst = this.currentCard.question === this.cards[0].question ? true : false;
-    this.isCardLast = this.currentCard.question === this.cards[this.cards.length - 1].question ? true : false;
+  private checkActiveBtns(): void {
+    this.isCardFirst =
+      this.currentCard.question === this.cards[0].question ? true : false;
+    this.isCardLast =
+      this.currentCard.question === this.cards[this.cards.length - 1].question
+        ? true
+        : false;
   }
 }

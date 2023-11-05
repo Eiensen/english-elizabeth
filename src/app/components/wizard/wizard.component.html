@@ -32,7 +32,7 @@
   <div class="card-wrapper">
     <app-result
       *ngIf="isComplete && !isEndTesting"
-      [totalPoints]="totalPoints"
+      [levelDescription]="getLevelDescription()"
       (onEndTesting)="onEndTesting($event)"
       (onStudentName)="onStudentName($event)"
     ></app-result>

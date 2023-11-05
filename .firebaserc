@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "enggame-5ee29"
+  },
+  "targets": {
+    "enggame-5ee29": {
+      "hosting": {
+        "EngGame": [
+          "enggame-5ee29"
+        ]
+      }
+    }
   }
 }
