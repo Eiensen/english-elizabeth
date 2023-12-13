@@ -13,7 +13,7 @@ export class AuthService {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(()=>{
       localStorage.setItem('token', 'true')
     }, err => {
-      alert(err.massage)
+      console.log(err.massage);
     })
   }
 
@@ -21,23 +21,25 @@ export class AuthService {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(()=>{
       alert('Registration successfull')
     }, err => {
-      alert(err.massage)
+      console.log(err.massage);
     })
   }
 
-  logout(): void{
-    this.fireAuth.signOut().then(()=>{
+  logout(){
+    return this.fireAuth.signOut().then(()=>{
       localStorage.removeItem('token')
     }, err => {
-      alert(err.massage)
+      console.log(err.massage);
     })
   }
 
   googleSignIn(){
     return this.fireAuth.signInWithPopup(new GoogleAuthProvider).then(res=>{
       localStorage.setItem('token', JSON.stringify(res.user?.uid))
+      console.log(res.user?.email);
+      
     }, err => {
-      alert(err.massage)
+      console.log(err.massage);
     })
   }
 }

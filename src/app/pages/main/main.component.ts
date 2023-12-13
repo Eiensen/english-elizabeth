@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MainComponent {
   public title = 'EngGame';
   isStart: boolean = false; 
+  isLogIn: boolean = false;
 
   constructor(private auth: AuthService){}
 
@@ -17,6 +18,18 @@ export class MainComponent {
   }
 
   signInWhithGoogle(){
-    this.auth.googleSignIn();
+    this.auth.googleSignIn().then(res=>{
+      this.isLogIn = true;
+    }, err =>{
+      this.isLogIn = false;
+    });
+  }
+
+  logout(){
+    this.auth.logout().then(res => {
+      this.isLogIn = false;
+    }, err =>{
+      this.isLogIn = true;
+    });
   }
 }

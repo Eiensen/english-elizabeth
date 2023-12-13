@@ -1,37 +1,62 @@
 <div class="">
-    <header class="">
-      <!-- <div class="logo flex justify-content-start w-full mb-2 mt-2">
+  <header class="">
+    <!-- <div class="logo flex justify-content-start w-full mb-2 mt-2">
         <img src="../assets/book_logo.png" alt="" width="200" height="100" />
       </div> -->
-      <div
-        class="title flex justify-content-start absolute ml-5 top-0"
-        style="width: 280px; height: 50px;"
-      >
-        <h1>English</h1>
-        <h5 class="flex justify-content-end">level test</h5>
-      </div>
-      <!-- <div class="flex justify-content-end" style="width: 100vw; align-items: center;">
-         <a (click)="signInWhithGoogle()" style="text-decoration: none">Sign In</a> 
-      </div> -->
-    </header>
-    <div class="main flex flex-wrap justify-content-center">
-      <div *ngIf="!isStart" class="intro">
-        <div class="intro-text">
-          <p>Как проходить тест</p>
-          <br />
-          <p>
-            1. Не используйте поисковики и переводчики.
-          </p>
-          <p>
-            2. Если не понимаете вопрос или не знаете на него ответ, пропустите его.
-          </p>
-          <p>
-            3. Помните, что вы проходите этот тест прежде всего для себя.
-          </p>
-        </div>
-        <app-footer (onStartClick)="onTestStart($event)"></app-footer>
-      </div>
-      <app-testing [isStartTesting]="isStart"></app-testing>
+    <div
+      class="title flex justify-content-start absolute ml-5 top-0"
+      style="width: 280px; height: 50px"
+    >
+      <h1>English</h1>
+      <h5 class="flex justify-content-end">level test</h5>
     </div>
+    <div
+      *ngIf="!isLogIn"
+      class="flex justify-content-end pr-5"
+      style="width: 100vw; align-items: center"
+    >
+      <a
+        (click)="signInWhithGoogle()"
+        style="
+          text-decoration: none;
+          cursor: pointer;
+        "
+        title="Sign In whith Google"
+      >
+        <img src="../../../assets/googleLogo.svg" width="25px" height="25px" />
+      </a>
+    </div>
+    <div
+      *ngIf="isLogIn"
+      class="flex justify-content-end pr-5"
+      style="width: 100vw; align-items: center"
+    >
+      <a
+        (click)="logout()"
+        style="
+          text-decoration: none;
+          cursor: pointer;
+        "
+        title="Log Out"
+      >
+        <img src="../../../assets/logoutLogo.svg" width="25px" height="25px" />
+      </a>
+    </div>
+  </header>
+  <div class="main flex flex-wrap justify-content-center">
+    <div *ngIf="!isStart" class="intro">
+      <div class="intro-text">
+        <p>Как проходить тест</p>
+        <br />
+        <p>1. Не используйте поисковики и переводчики.</p>
+        <p>
+          2. Если не понимаете вопрос или не знаете на него ответ, пропустите
+          его.
+        </p>
+        <p>3. Помните, что вы проходите этот тест прежде всего для себя.</p>
+      </div>
+      <app-footer (onStartClick)="onTestStart($event)"></app-footer>
+    </div>
+    <app-testing [isStartTesting]="isStart"></app-testing>
   </div>
-  
+</div>
