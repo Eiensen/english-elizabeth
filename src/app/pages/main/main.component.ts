@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,12 +6,18 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements OnInit{
   public title = 'EngGame';
   isStart: boolean = false; 
   isLogIn: boolean = false;
+  userLogin: string = "";
 
   constructor(private auth: AuthService){}
+
+  ngOnInit(): void {
+    this.userLogin = localStorage.getItem('useremail')??"";
+    if(this.userLogin) this.isLogIn = true;
+  }
 
   onTestStart(e:boolean){
     this.isStart = e;
@@ -19,6 +25,7 @@ export class MainComponent {
 
   signInWhithGoogle(){
     this.auth.googleSignIn().then(res=>{
+      this.userLogin = localStorage.getItem('useremail')??"";      
       this.isLogIn = true;
     }, err =>{
       this.isLogIn = false;
@@ -26,10 +33,9 @@ export class MainComponent {
   }
 
   logout(){
-    this.auth.logout().then(res => {
+    this.auth.logout().then(() => { 
+      this.userLogin = "";     
       this.isLogIn = false;
-    }, err =>{
-      this.isLogIn = true;
     });
   }
 }

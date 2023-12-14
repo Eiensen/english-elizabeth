@@ -34,7 +34,7 @@
       *ngIf="isComplete && !isEndTesting"
       [levelDescription]="getLevelDescription()"
       (onEndTesting)="onEndTesting($event)"
-      (onStudentName)="onStudentName($event)"
+      (onStudentName)="onSendResultToDb($event)"
     ></app-result>
   </div>
 </div>

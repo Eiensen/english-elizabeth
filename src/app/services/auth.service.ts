@@ -28,6 +28,7 @@ export class AuthService {
   logout(){
     return this.fireAuth.signOut().then(()=>{
       localStorage.removeItem('token')
+      localStorage.removeItem('useremail')
     }, err => {
       console.log(err.massage);
     })
@@ -35,9 +36,8 @@ export class AuthService {
 
   googleSignIn(){
     return this.fireAuth.signInWithPopup(new GoogleAuthProvider).then(res=>{
-      localStorage.setItem('token', JSON.stringify(res.user?.uid))
-      console.log(res.user?.email);
-      
+      localStorage.setItem('token', JSON.stringify(res.user?.uid));
+      localStorage.setItem('useremail', JSON.stringify(res.user?.email));
     }, err => {
       console.log(err.massage);
     })

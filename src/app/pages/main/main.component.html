@@ -11,36 +11,30 @@
       <h5 class="flex justify-content-end">level test</h5>
     </div>
     <div
-      *ngIf="!isLogIn"
       class="flex justify-content-end pr-5"
       style="width: 100vw; align-items: center"
     >
-      <a
-        (click)="signInWhithGoogle()"
-        style="
-          text-decoration: none;
-          cursor: pointer;
-        "
-        title="Sign In whith Google"
-      >
-        <img src="../../../assets/googleLogo.svg" width="25px" height="25px" />
-      </a>
-    </div>
-    <div
-      *ngIf="isLogIn"
-      class="flex justify-content-end pr-5"
-      style="width: 100vw; align-items: center"
-    >
-      <a
-        (click)="logout()"
-        style="
-          text-decoration: none;
-          cursor: pointer;
-        "
-        title="Log Out"
-      >
-        <img src="../../../assets/logoutLogo.svg" width="25px" height="25px" />
-      </a>
+      <div class="user pr-2">
+        {{ userLogin }}
+      </div>
+      <div *ngIf="!isLogIn" class="flex">
+        <img
+          src="../../../assets/googleLogo.svg"
+          (click)="signInWhithGoogle()"
+          style="text-decoration: none; cursor: pointer"
+          title="Sign In whith Google"
+        />
+      </div>
+      <div *ngIf="isLogIn"  class="flex">
+        <img
+          src="../../../assets/logoutLogo.svg"
+          (click)="logout()"
+          style="text-decoration: none; cursor: pointer"
+          title="Log Out"
+          width="25px"
+          height="25px"
+        />
+      </div>
     </div>
   </header>
   <div class="main flex flex-wrap justify-content-center">

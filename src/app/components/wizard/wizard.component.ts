@@ -8,6 +8,8 @@ import { getDatabase, ref, set, push } from 'firebase/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp } from '@angular/fire/app';
 import { LevelDescription } from 'src/app/enums/levelDescription';
+import { DbCard } from 'src/app/models/dbCard';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-wizard',
@@ -27,7 +29,7 @@ export class WizardComponent {
 
   private doc = new jsPDF();
 
-  constructor() {}
+  constructor(private database: DatabaseService) {}
 
   ngOnInit(): void {
     // this.pdfReader.readPdf('../../assets/Outcomes_Placement_Test.pdf')
@@ -51,29 +53,18 @@ export class WizardComponent {
   onEndTesting(e: boolean) {
     this.isEndTesting = e;
   }
-  onStudentName(e: string) {
-    const db = getDatabase();
-    var cardsToDb: {q:string, a:string|undefined, isRight: boolean|null}[] = []
+  onSendResultToDb(e: string) {
+    var cardsToDb: DbCard[] = []
     this.completeCards.map(c=>{
       var checked = c.answers.find(a=>a.isChecked);
       if(checked)
       cardsToDb.push({
-        q: c.question, 
-        a: checked?.answer,
+        question: c.question, 
+        answer: checked?.answer,
         isRight: c.rightAnswer
       })
     })
-    push(ref(db, 'students/' + e), {
-      level: this.getLevelDescription().toString(),
-      test: cardsToDb,
-      time: new Date().toString()
-    })
-      .then(() => {
-        console.log('save student data successfull');
-      })
-      .catch((error) => {
-        console.log(error);
-      });      
+    this.database.push(e, this.getLevelDescription(), cardsToDb, new Date());     
   }
 
   onAnswered(e: number) {

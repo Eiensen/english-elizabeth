@@ -44,6 +44,12 @@ header .title h5{
     text-shadow: 1px 3px 8px rgba(113, 113, 113, 0.5);
 }
 
+header .user{
+    font-family: 'Yeseva One', cursive;
+    color: rgb(6, 41, 73);
+    text-shadow: 1px 1px 15px rgb(113, 113, 113, 0.7);
+}
+
 .intro{    
     margin-top: 20px;    
     width: 55%;
