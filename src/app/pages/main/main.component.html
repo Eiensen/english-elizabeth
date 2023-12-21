@@ -14,6 +14,9 @@
       class="flex justify-content-end pr-5"
       style="width: 100vw; align-items: center"
     >
+    <div class="flex pr-2">
+      <button class="test-button" (click)="startTesting()">Test</button>
+    </div>
       <div class="user pr-2">
         {{ userLogin }}
       </div>
@@ -37,20 +40,7 @@
       </div>
     </div>
   </header>
-  <div class="main flex flex-wrap justify-content-center">
-    <div *ngIf="!isStart" class="intro">
-      <div class="intro-text">
-        <p>Как проходить тест</p>
-        <br />
-        <p>1. Не используйте поисковики и переводчики.</p>
-        <p>
-          2. Если не понимаете вопрос или не знаете на него ответ, пропустите
-          его.
-        </p>
-        <p>3. Помните, что вы проходите этот тест прежде всего для себя.</p>
-      </div>
-      <app-footer (onStartClick)="onTestStart($event)"></app-footer>
-    </div>
-    <app-testing [isStartTesting]="isStart"></app-testing>
+  <div class="main flex flex-wrap justify-content-center">    
+    <app-testing [isShowTest]="isShowTest"></app-testing>
   </div>
 </div>

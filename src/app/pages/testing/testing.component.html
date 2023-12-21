@@ -1,1 +1,19 @@
-<app-wizard *ngIf="isStartTesting" [cards]="cards" [answerKeys]="answerKeys"></app-wizard>
+<div class="main flex flex-wrap justify-content-center">
+  <div *ngIf="isShowTest && !isStart" class="intro">
+    <div class="intro-text">
+      <p>Как проходить тест</p>
+      <br />
+      <p>1. Не используйте поисковики и переводчики.</p>
+      <p>
+        2. Если не понимаете вопрос или не знаете на него ответ, пропустите его.
+      </p>
+      <p>3. Помните, что вы проходите этот тест прежде всего для себя.</p>
+    </div>
+    <app-footer (onStartClick)="onTestStart($event)"></app-footer>
+  </div>
+  <app-wizard
+    *ngIf="isStart"
+    [cards]="cards"
+    [answerKeys]="answerKeys"
+  ></app-wizard>
+</div>

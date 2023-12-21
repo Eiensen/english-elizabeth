@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MainComponent implements OnInit{
   public title = 'EngGame';
-  isStart: boolean = false; 
+  isShowTest: boolean = false;  
   isLogIn: boolean = false;
   userLogin: string = "";
 
@@ -17,11 +17,7 @@ export class MainComponent implements OnInit{
   ngOnInit(): void {
     this.userLogin = localStorage.getItem('useremail')??"";
     if(this.userLogin) this.isLogIn = true;
-  }
-
-  onTestStart(e:boolean){
-    this.isStart = e;
-  }
+  } 
 
   signInWhithGoogle(){
     this.auth.googleSignIn().then(res=>{
@@ -30,6 +26,10 @@ export class MainComponent implements OnInit{
     }, err =>{
       this.isLogIn = false;
     });
+  }
+
+  startTesting(){
+    this.isShowTest = true;
   }
 
   logout(){

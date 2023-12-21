@@ -9,7 +9,8 @@ import { FromTxtToTestCardsService } from 'src/app/services/from-txt-to-test-car
   styleUrls: ['./testing.component.css']
 })
 export class TestingComponent {
-  @Input() isStartTesting: boolean = false;
+  @Input() isShowTest!: boolean;
+  public isStart: boolean;
   public cards: TestCard[];
   public answerKeys: AnswerKeys;
 
@@ -17,5 +18,11 @@ export class TestingComponent {
     this.testCardService.Init()
     this.cards = this.testCardService.AllCards;
     this.answerKeys = new AnswerKeys();
+    this.isStart = false;
+  }
+
+  
+  onTestStart(e:boolean){
+    this.isStart = e;
   }
 }
