@@ -29,7 +29,7 @@ export class MainComponent implements OnInit{
   }
 
   startTesting(){
-    this.isShowTest = true;
+    this.isShowTest = !this.isShowTest;
   }
 
   logout(){

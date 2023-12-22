@@ -1,0 +1,30 @@
+.intro{
+    margin-top: 1rem;
+    padding: 3%;
+    width: 90vw;
+    height: 50vh;
+    background-color: #ffffffa4;
+    box-shadow: 0px 0px 20px rgb(177, 177, 177);
+    align-items: center;
+}
+
+.intro-image{
+    background-image: url("../../../assets/intro.jpg");
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 50%;
+}
+.intro-description{
+    width: 50%;
+}
+.intro-slogan{
+    color: rgb(6, 41, 73);
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+}
+.default-text{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}

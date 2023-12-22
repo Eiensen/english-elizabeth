@@ -21,6 +21,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { FrontpageComponent } from './pages/frontpage/frontpage.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     ResultComponent,
     FooterComponent,
     TestingComponent,
-    MainComponent
+    MainComponent,
+    FrontpageComponent
   ],
   imports: [
     BrowserModule,

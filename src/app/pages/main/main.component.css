@@ -3,14 +3,12 @@ h1, h5{
 }
 
 .main {     
-    min-height: calc(100vh - 240px);
+    /* min-height: calc(100vh - 240px); */
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    /* overflow: auto; */
-    margin-top: 30px;
 }
 header{
     position: sticky;
