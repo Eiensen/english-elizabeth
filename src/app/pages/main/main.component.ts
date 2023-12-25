@@ -28,10 +28,6 @@ export class MainComponent implements OnInit{
     });
   }
 
-  startTesting(){
-    this.isShowTest = !this.isShowTest;
-  }
-
   logout(){
     this.auth.logout().then(() => { 
       this.userLogin = "";     

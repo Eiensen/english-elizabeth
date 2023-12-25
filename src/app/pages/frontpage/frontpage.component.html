@@ -1,18 +1,47 @@
 <div *ngIf="isShowFrontpage">
-    <section class="flex intro">
-        <div class="intro-description">
-            <h1 class="intro-slogan">Here will be my best Slogan!</h1>
-            <p class="default-text">In this page you can read obout me and my courses. Welcome to my public site!</p>
-        </div>
-        <div class="intro-image">
-        </div>
+    <section class="flex custom-section about-me">
+        <div class="flex-wrap justify-content-center align-items-center w-full">
+            <h1 class="intro-slogan text-white">Here will be my best Slogan!</h1>
+            <p class="default-text text-white">
+                Welcome to my public site!                
+            </p>
+            
+            <p class="default-text text-white">
+                In this page you can read obout me and my courses.                
+            </p>
+        </div>       
     </section>
-    <section class="flex intro">
+    <section class="flex custom-section">
+        <div class="flex intro-image">
+        </div>
         <div class="intro-description">
-            <h1 class="intro-slogan">Here will be my best Slogan!</h1>
-            <p class="default-text">In this page you can read obout me and my courses. Welcome to my public site!</p>
+            <h1 class="intro-slogan">About Me!</h1>
+            <p class="default-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste recusandae aliquid fuga nam asperiores esse, sequi modi ab corporis laboriosam quibusdam in mollitia vitae voluptatibus quos excepturi temporibus delectus!!
+            
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste recusandae aliquid fuga nam asperiores esse, sequi modi ab corporis laboriosam quibusdam in mollitia vitae voluptatibus quos excepturi temporibus delectus!!
+            
+            </p>
+        </div>        
+    </section>
+    <section class="flex custom-section testing">
+        <div class="flex-wrap justify-content-center align-items-center w-5">
+            <h1 class="intro-slogan text-white">Outcome test</h1>
+            <p class="default-text text-white">
+                Для того, чтобы определить свой уровень владения английским языком, рекомендую пройти общий тест. 
+            </p>           
+            <button class="test-button" (click)="startTesting()"><h4>Test</h4></button>            
+        </div>               
+    </section>
+    <section class="flex custom-section">
+        <div class="flex contscts-image">
         </div>
-        <div class="intro-image">
-        </div>
+        <div class="intro-description">
+            <h1 class="intro-slogan">You can find me on:</h1>            
+            <a class="block default-text pl-6">Instagram</a>
+            <a class="block default-text pl-6">Youtube</a>
+            <a class="block default-text pl-6">VKontacte</a>
+            <a class="block default-text pl-6">Email</a>
+        </div>        
     </section>
 </div>

@@ -54,14 +54,7 @@ header .user{
     justify-content: center;
 
 }
-.test-button{
-    background: none;
-    border: none;
-    color: rgb(6, 41, 73);
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: 'Yeseva One', cursive;
-}
+
 
 @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) */
@@ -85,6 +78,11 @@ header .user{
     }
     .intro{
         width: 85%;
+    }
+ }
+ @media only screen and (max-device-width: 680px) {
+    header .user{
+        display: none;
     }
  }
  @media only screen and (max-device-width: 980px){

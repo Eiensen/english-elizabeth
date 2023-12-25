@@ -7,6 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class FrontpageComponent {
 
+  isShowTest: boolean = false; 
   @Input() isShowFrontpage!: boolean;
 
+  
+  startTesting(){
+    this.isShowTest = !this.isShowTest;
+  }
 }
