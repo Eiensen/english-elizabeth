@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "target": "EngGame",
       "public": "public",
       "ignore": [
         "firebase.json",

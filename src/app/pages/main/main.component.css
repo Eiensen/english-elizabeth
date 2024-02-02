@@ -17,7 +17,7 @@ header{
     left: 0;
     z-index: 100;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     width: 100%;
     flex-wrap: wrap;
     display: flex;
