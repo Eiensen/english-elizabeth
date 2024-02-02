@@ -24,6 +24,7 @@
     "jspdf": "^2.5.1",
     "pdfjs-dist": "^3.7.107",
     "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
     "primeng": "^15.4.1",
     "rxfire": "^6.0.5",
     "rxjs": "~7.8.0",

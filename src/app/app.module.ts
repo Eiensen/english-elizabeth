@@ -22,6 +22,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FrontpageComponent } from './pages/frontpage/frontpage.component';
+import { HeaderScrollDirective } from './directives/header-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FrontpageComponent } from './pages/frontpage/frontpage.component';
     FooterComponent,
     TestingComponent,
     MainComponent,
-    FrontpageComponent
+    FrontpageComponent,
+    HeaderScrollDirective
   ],
   imports: [
     BrowserModule,
