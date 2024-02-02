@@ -11,6 +11,7 @@
       <!-- <h5 class="flex justify-content-end">level test</h5> -->
     </div>
     <div
+      *ngIf="!isShowTest"
       class="flex justify-content-end pr-5"
       style="width: 100vw; align-items: center"
     >    
@@ -36,9 +37,16 @@
         />
       </div>
     </div>
+    <div
+      *ngIf="isTestFinish"
+      class="flex justify-content-end pr-5"
+      style="width: 100vw; align-items: center"
+    >
+      <button (click)="backToHome()">Home</button>
+    </div>
   </header>
   <div class="main flex flex-wrap justify-content-center">    
-    <app-testing [isShowTest]="isShowTest"></app-testing>
-    <app-frontpage [isShowFrontpage]="!isShowTest"></app-frontpage>
+    <app-testing [isShowTest]="isShowTest" (onTestFinish)="onTestFinish($event)"></app-testing>
+    <app-frontpage [isShowFrontpage]="!isShowTest" (onTestButtonClicked)="onTestButtonClicked($event)"></app-frontpage>
   </div>
 </div>

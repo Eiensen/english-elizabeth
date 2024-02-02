@@ -1,4 +1,4 @@
-<div class="main flex flex-wrap justify-content-center">
+<div *ngIf="isShowTest" class="main flex flex-wrap justify-content-center">
   <div *ngIf="isShowTest && !isStart" class="intro">
     <div class="intro-text">
       <p>Как проходить тест</p>
@@ -15,5 +15,6 @@
     *ngIf="isStart"
     [cards]="cards"
     [answerKeys]="answerKeys"
+    (onTestFinish)="onTestEnd($event)"
   ></app-wizard>
 </div>

@@ -8,7 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MainComponent implements OnInit{
   public title = 'EngGame';
-  isShowTest: boolean = false;  
+  isShowTest: boolean = false;
+  isTestFinish: boolean = false;  
   isLogIn: boolean = false;
   userLogin: string = "";
 
@@ -33,5 +34,18 @@ export class MainComponent implements OnInit{
       this.userLogin = "";     
       this.isLogIn = false;
     });
+  }
+
+  backToHome(){
+    this.isTestFinish = false;
+    this.isShowTest = false;
+  }
+
+  onTestButtonClicked(event: boolean){
+    this.isShowTest = event;
+  }
+
+  onTestFinish(event: boolean){
+    this.isTestFinish = event;
   }
 }

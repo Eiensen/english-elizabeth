@@ -1,12 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationActions } from 'src/app/enums/navigationActions';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
 import { jsPDF } from 'jspdf';
-import { getDatabase, ref, set, push } from 'firebase/database';
-import { AngularFireModule } from '@angular/fire/compat';
-import { initializeApp } from '@angular/fire/app';
 import { LevelDescription } from 'src/app/enums/levelDescription';
 import { DbCard } from 'src/app/models/dbCard';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -19,6 +15,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class WizardComponent {
   @Input() answerKeys!: AnswerKeys;
   @Input() cards!: TestCard[];
+  @Output() onTestFinish = new EventEmitter<boolean>();
   public currentCard!: TestCard;
   public isCardFirst!: boolean;
   public isCardLast!: boolean;
@@ -52,7 +49,9 @@ export class WizardComponent {
 
   onEndTesting(e: boolean) {
     this.isEndTesting = e;
+    this.onTestFinish.emit(e);
   }
+
   onSendResultToDb(e: string) {
     var cardsToDb: DbCard[] = []
     this.completeCards.map(c=>{

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AnswerKeys } from 'src/app/models/answerKeys';
 import { TestCard } from 'src/app/models/testCard';
 import { FromTxtToTestCardsService } from 'src/app/services/from-txt-to-test-card.service';
@@ -10,7 +10,8 @@ import { FromTxtToTestCardsService } from 'src/app/services/from-txt-to-test-car
 })
 export class TestingComponent {
   @Input() isShowTest!: boolean;
-  public isStart: boolean;
+  @Output() onTestFinish = new EventEmitter<boolean>();
+  public isStart: boolean = false;
   public cards: TestCard[];
   public answerKeys: AnswerKeys;
 
@@ -20,9 +21,12 @@ export class TestingComponent {
     this.answerKeys = new AnswerKeys();
     this.isStart = false;
   }
-
   
   onTestStart(e:boolean){
     this.isStart = e;
+  }
+
+  onTestEnd(event: boolean){
+    this.onTestFinish.emit(event);
   }
 }
