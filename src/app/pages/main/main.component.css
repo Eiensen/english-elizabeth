@@ -20,7 +20,7 @@ header{
     justify-content: flex-start;
     width: 100%;
     flex-wrap: wrap;
-    display: flex;
+    display: none;
     background-color: #ffffffa4;
     box-shadow: 0px 0px 20px rgb(177, 177, 177);
 }
