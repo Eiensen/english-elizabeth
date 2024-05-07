@@ -22,7 +22,7 @@
     "@angular/router": "^15.2.0",
     "firebase": "^10.7.2",
     "jspdf": "^2.5.1",
-    "pdfjs-dist": "^3.7.107",
+    "pdfjs-dist": "^4.2.67",
     "primeflex": "^3.3.0",
     "primeng": "^15.4.1",
     "rxfire": "^6.0.5",
